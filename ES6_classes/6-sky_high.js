@@ -1,14 +1,12 @@
 #!/usr/bin/node
 
-export default class Building {
-  constructor(sqft) {
+import Building from './5-building.js';
+
+export default class SkyHighBuilding extends Building {
+  constructor(sqft, floors) {
+    super(sqft);
     this._sqft = sqft;
-    // Check if the instance is of the base class or a subclass
-    if (this.constructor !== Building) {
-      if (typeof this.evacuationWarningMessage !== 'function') {
-        throw new Error('Class extending Building must override evacuationWarningMessage');
-      }
-    }
+    this._floors = floors;
   }
 
   // Getter for sqft
@@ -16,8 +14,13 @@ export default class Building {
     return this._sqft;
   }
 
-  // Abstract method enforcement
+  // Getter for floors
+  get floors() {
+    return this._floors;
+  }
+
+  // Override the evacuationWarningMessage method
   evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+    return `Evacuate slowly the ${this._floors} floors`;
   }
 }
