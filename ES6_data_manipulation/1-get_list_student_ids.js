@@ -1,2 +1,7 @@
-// 1-use_or_create_database
-use my_db
+export default function getListStudentIds(students) {
+  if (!Array.isArray(students)) {
+    return [];
+  }
+
+  return students.map((student) => student.id);
+}
