@@ -9,6 +9,8 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
 
   return results.map((result) => ({
     status: result.status,
+    // If rejected, use result.reason. If the test expects the Error object, 
+    // provide the Error object directly, not a string.
     value: result.status === 'fulfilled' ? result.value : result.reason,
   }));
 }
