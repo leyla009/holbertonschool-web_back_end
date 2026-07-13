@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import signUpUser from './4-user-promise.js';
 import uploadPhoto from './5-photo-reject.js';
 
@@ -7,10 +8,16 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     uploadPhoto(fileName),
   ]);
 
-  return results.map((result) => ({
-    status: result.status,
-    // If rejected, use result.reason. If the test expects the Error object, 
-    // provide the Error object directly, not a string.
-    value: result.status === 'fulfilled' ? result.value : result.reason,
-  }));
+  return results.map((result) => {
+    if (result.status === 'fulfilled') {
+      return {
+        status: result.status,
+        value: result.value,
+      };
+    }
+    return {
+      status: result.status,
+      value: result.reason,
+    };
+  });
 }
