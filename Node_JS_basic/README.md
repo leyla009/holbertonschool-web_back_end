@@ -14,3 +14,7 @@ This directory contains introductory projects and exercises using **Node.js**, c
 ### 0. Executing basic JavaScript with Node JS
 * **File:** `0-console.js`
 * **Description:** Creates a function named `displayMessage` that prints the string argument passed to it into STDOUT using `console.log`. Exported using CommonJS module syntax (`module.exports`).
+
+### 1. Using Process stdin
+* **File:** `1-stdin.js`
+* **Description:** A program executed through the command line that prompts the user for their name, reads input from `process.stdin`, outputs the name, and handles the close event properly.
