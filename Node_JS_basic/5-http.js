@@ -1,4 +1,4 @@
-
+#!/usr/bin/node
 /**
  * Creates a more complex HTTP server using Node's http module,
  * handling different routes and integrating student database reading.
